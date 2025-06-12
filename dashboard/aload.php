@@ -139,6 +139,7 @@ if (!isset($_SESSION["mikhmon"])) {
       <div class="card-body">
         <div class="row">
           <div class="col-3 col-box-6">
+            <!-- Bagian Hotspot Aktif -->
             <div class="box bg-blue bmh-75">
               <a href="./?hotspot=active&session=<?= $session; ?>">
                 <h1><?= $counthotspotactive; ?>
@@ -151,6 +152,7 @@ if (!isset($_SESSION["mikhmon"])) {
             </div>
           </div>
           <div class="col-3 col-box-6">
+            <!-- Bagian List Pengguna Hotspot -->
             <div class="box bg-green bmh-75">
               <a href="./?hotspot=users&profile=all&session=<?= $session; ?>">
                 <h1><?= $countallusers; ?>
@@ -163,6 +165,7 @@ if (!isset($_SESSION["mikhmon"])) {
             </div>
           </div>
           <div class="col-3 col-box-6">
+            <!-- Bagian tambah pengguna hotspot -->
             <div class="box bg-yellow bmh-75">
               <a href="./?hotspot-user=add&session=<?= $session; ?>">
                 <div>
@@ -177,6 +180,7 @@ if (!isset($_SESSION["mikhmon"])) {
             </div>
           </div>
           <div class="col-3 col-box-6">
+            <!-- Bagian Hasilkan Pengguna Hotspot -->
             <div class="box bg-red bmh-75">
               <a href="./?hotspot-user=generate&session=<?= $session; ?>">
                 <div>
@@ -195,6 +199,7 @@ if (!isset($_SESSION["mikhmon"])) {
     </div>
     </div>
 
+  <!-- Ngedapetin data Log Hotspot dari router/mikrotik -->
   <?php
   } else if ($load == "logs") {
 
@@ -225,6 +230,7 @@ if (!isset($_SESSION["mikhmon"])) {
 
   ?>
 
+    <!-- Card Log Hotspot -->
     <div id="r_3" class="row">
       <div class="card">
         <div class="card-header">

@@ -507,6 +507,7 @@ elseif ($ppp == "edit-profile") {
 <script src="./js/mikhmon-ui.<?= $theme; ?>.min.js"></script>
 <script src="./js/mikhmon.js?t=<?= str_replace(" ","_",date("Y-m-d H:i:s")); ?>"></script>
 
+<!-- Bagian reload tiap 10 detik -->
 <?php
 if ($hotspot == "dashboard" || substr(end(explode("/", $url)), 0, 8) == "?session") {
   echo '<script>

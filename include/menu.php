@@ -176,7 +176,7 @@ if($idleto != "disable"){
 <span style="display:none;" id="idto"><?= $idleto ;?></span>
 
 
-<?php if ($id !== "") { ?>
+<?php if ($id != "") { ?>
 
 <div id="navbar" class="navbar">
   <div class="navbar-left">
