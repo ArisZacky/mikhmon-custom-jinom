@@ -274,6 +274,39 @@ if (!isset($_SESSION["mikhmon"])) {
         </div>
 </form>
 
+  <script>
+  async function connectWithLaravelAPI() {
+      const ip = document.querySelector('input[name="ipmik"]').value;
+      const username = document.querySelector('input[name="usermik"]').value;
+      const password = document.querySelector('input[name="passmik"]').value;
+
+      try {
+          const response = await fetch('http://127.0.0.1:8000/api/check-connection', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+              },
+              body: JSON.stringify({ ip, username, password })
+          });
+
+          const result = await response.json();
+
+          if (result.status === 'success') {
+              alert('Sukses terkoneksi ke Mikrotik!, Anda dapat menuju dashboard di menu kiri');
+              location.reload(); // Reload agar form keisi dari $_SESSION
+          } else {
+              alert('Gagal konek: ' + result.message);
+              location.reload(); // Reload agar form keisi dari $_SESSION
+          }
+
+      } catch (err) {
+          alert('Terjadi kesalahan: ' + err.message);
+          location.reload(); // Reload agar form keisi dari $_SESSION
+      }
+  }
+  </script>
+
 
 <!-- <script>
   function submitFormData(event) {

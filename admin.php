@@ -143,9 +143,17 @@ elseif (!isset($_SESSION["mikhmon"])) {
   $API = new RouterosAPI();
   $API->debug = false;
   if ($API->connect($iphost, $userhost, decrypt($passwdhost))) {
-    
     $_SESSION["connect"] = "<b class='text-green'>Connected</b>";
-    echo "<script>window.location='./?session=" . $session . "'</script>";
+
+    if ($c != "settings") {
+      echo "<script>window.location='./?session=" . $session . "'</script>";
+    }else{
+      echo "<script>
+            alert('Mikhmon connected succesfully!!\\nAnda dapat menuju dashboard di menu kiri');
+            window.location='./admin.php?id=settings&session=" . $session . "';
+        </script>";
+    }
+    // echo "<script>window.location='./?session=" . $session . "'</script>";
   } else {
     $_SESSION["connect"] = "<b class='text-red'>Not Connected</b>";
     $nl = '\n';

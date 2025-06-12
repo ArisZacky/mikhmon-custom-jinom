@@ -26,6 +26,13 @@ if (!isset($_SESSION["mikhmon"])) {
   include ('./include/version.php');
 
   $btnmenuactive = "font-weight: bold;background-color: #f9f9f9; color: #000000";
+  
+  $isConnected = false;
+
+  if (isset($_SESSION["connect"]) && $_SESSION["connect"] === "<b class='text-green'>Connected</b>") {
+    $isConnected = true;
+  }
+  
   if ($hotspot == "dashboard" || substr(end(explode("/", $url)), 0, 8) == "?session") {
     $shome = "active";
     $mpage = $_dashboard;
@@ -210,8 +217,12 @@ if($idleto != "disable"){
 <?php if (($id == "settings" && $session == "new") || $id == "settings" && $router == "new") {
 }else if ($id == "settings" || $id == "editor"|| $id == "uplogo" || $id == "connect"){
 ?>  
-  <div class="menu text-center align-middle card-header" style="border-radius:0;"><h3 id="MikhmonSession"><?= $session; ?></h3></div>
-  <a class="connect menu <?= $shome; ?>" id="<?= $session; ?>&c=settings"><i class='fa fa-tachometer'></i> <?= $_dashboard ?></a>
+  <!-- Hide button dashboard berdasarkan status koneksi -->
+  <?php if ($isConnected) { ?>
+    <a class="connect menu <?= $shome; ?>" href="./?session=<?= $session ?>"><i class='fa fa-tachometer'></i> <?= $_dashboard ?></a>
+  <?php } else { ?>
+    <!-- <div  href="#" class="menu" title="Not Connected"><i class='fa fa-exclamation-triangle'></i> Not Connected</div> -->
+  <?php } ?>
   <a  href="./admin.php?id=settings&session=<?= $session; ?>" class="menu <?= $ssettings; ?>" title="Mikhmon Settings"><i class='fa fa-gear'></i> <?= $_session_settings ?></a>
   <a href="./admin.php?id=uplogo&session=<?= $session; ?>" class="menu <?= $suplogo; ?>"><i class="fa fa-upload "></i> <?= $_upload_logo ?></a>
   <a href="./admin.php?id=editor&template=default&session=<?= $session; ?>" class="menu <?= $seditor; ?>"><i class="fa fa-edit"></i> <?= $_template_editor ?></a>
