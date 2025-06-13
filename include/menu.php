@@ -180,7 +180,7 @@ if($idleto != "disable"){
 
 <div id="navbar" class="navbar">
   <div class="navbar-left">
-    <a id="brand" class="text-center" href="javascript:void(0)">JINOM</a>
+    <a id="brand" class="text-center" href="javascript:void(0)">MIKHMON</a>
 
 <a id="openNav" class="navbar-hover" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
 <a id="closeNav" class="navbar-hover" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
@@ -217,6 +217,7 @@ if($idleto != "disable"){
 <?php if (($id == "settings" && $session == "new") || $id == "settings" && $router == "new") {
 }else if ($id == "settings" || $id == "editor"|| $id == "uplogo" || $id == "connect"){
 ?>  
+  <div class="menu text-center align-middle card-header" style="border-radius:0;"><h3 id="MikhmonSession"><?= $session; ?></h3></div>
   <!-- Hide button dashboard berdasarkan status koneksi -->
   <?php if ($isConnected) { ?>
     <a class="connect menu <?= $shome; ?>" href="./?session=<?= $session ?>"><i class='fa fa-tachometer'></i> <?= $_dashboard ?></a>
@@ -259,7 +260,7 @@ include('./info.php');
 
 <div id="navbar" class="navbar">
   <div class="navbar-left">
-    <a id="brand" class="text-center" href="./?session=<?= $session; ?>">JINOM</a>
+    <a id="brand" class="text-center" href="./?session=<?= $session; ?>">MIKHMON</a>
 
 <a id="openNav" class="navbar-hover" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
 <a id="closeNav" class="navbar-hover" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
